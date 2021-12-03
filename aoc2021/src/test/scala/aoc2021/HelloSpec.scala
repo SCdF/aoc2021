@@ -19,6 +19,6 @@ class Day02Spec extends AnyFunSuite {
       "forward 2",
     )
 
-    assert(Day02.calculateLocation(testInput) == 150)
+    assert(Day02.calculateLocation(testInput) == 900)
   }
 }

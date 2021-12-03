@@ -63,7 +63,45 @@ object Day02 {
   }
 }
 
+object Day03 {
+  def powerConsumption(input: List[String]): Int = {
+    val addedRows = input     // ["010", "110", "111"]
+      .map(_.map(_.asDigit))  // [[0,1,0], [1,1,0], [1,1,1]]
+      .transpose              // [[0,1,1], [1,1,1], [0,0,1]]
+      .map(_.reduce(_+_))     // [1,2,3]
+
+    val cutoff = input.size / 2
+
+    val gammaString = addedRows
+      .map(x => if (x > cutoff) "1" else "0")
+      .mkString
+
+    val gamma = Integer.parseInt(gammaString, 2)
+    // if only scala had unsigned ints!
+    // --> val epilon = ~gamma <--
+    // instead we're going to do something ugly
+    val epsilonString = gammaString.map(_ match {
+      case '0' => '1'
+      case '1' => '0'
+    }).mkString
+    val epsilon = Integer.parseInt(epsilonString, 2)
+
+    println(f"gamma: $gamma, epsilon: $epsilon")
+
+    gamma * epsilon
+  }
+
+  def main() {
+    val day03 = Source.fromFile("./src/data/day03")
+      .getLines.toList
+
+    val answer = powerConsumption(day03)
+    println(f"Day 03: $answer")
+  }
+}
+
 object Aoc extends App {
   Day01.main()
   Day02.main()
+  Day03.main()
 }

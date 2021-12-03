@@ -22,3 +22,24 @@ class Day02Spec extends AnyFunSuite {
     assert(Day02.calculateLocation(testInput) == 900)
   }
 }
+
+class Day03Spec extends AnyFunSuite {
+  test("works") {
+    val testInput = List(
+      "00100",
+      "11110",
+      "10110",
+      "10111",
+      "10101",
+      "01111",
+      "00111",
+      "11100",
+      "10000",
+      "11001",
+      "00010",
+      "01010",
+    )
+
+    assert(Day03.powerConsumption(testInput) == 198)
+  }
+}

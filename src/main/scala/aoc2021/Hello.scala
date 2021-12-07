@@ -218,15 +218,34 @@ object Day04 {
     None
   }
 
+  def worstBingoBoard(input: String): Int = {
+    val lines = input.split('\n').iterator
+    val bingoNumbers = lines.next.split(',').map(Integer.parseInt(_))
+    var bingoBoards = parseBoardsFromInput(lines)
+
+    var winningScore: Int = 0
+    for (bn <- bingoNumbers) {
+      bingoBoards = bingoBoards.map(board => {
+        if (board.play(bn)) {
+          winningScore = board.value * bn
+          None
+        } else Some(board)
+      }).flatten
+    }
+
+    winningScore
+  }
+
   def main() {
     val day04 = Source.fromFile("./src/data/day04").mkString
     println(f"Day 04: ${bingo(day04)}")
+    println(f"Day 04.2: ${worstBingoBoard(day04)}")
   }
 }
 
 object Aoc extends App {
-  Day01.main()
-  Day02.main()
-  Day03.main()
+  // Day01.main()
+  // Day02.main()
+  // Day03.main()
   Day04.main()
 }

@@ -1,5 +1,6 @@
+package aoc
+
 import org.scalatest.funsuite._
-import aoc._
 
 class Day03Spec extends AnyFunSuite {
 

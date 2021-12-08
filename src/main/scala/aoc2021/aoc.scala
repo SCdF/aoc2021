@@ -19,4 +19,7 @@ object Aoc extends App {
   val day07 = Source.fromFile("./src/data/day07").getLines.mkString
   println(f"Day 07: ${Day07.optimalFuel(day07)}")
   println(f"Day 07.2: ${Day07.evenMoreOptimalFuel(day07)}")
+
+  val day08 = Source.fromFile("./src/data/day08").getLines.toList
+  println(f"Day 08: ${Day08.easyCount(day08)}")
 }

@@ -14,4 +14,5 @@ object Aoc extends App {
 
   val day06 = Source.fromFile("./src/data/day06").getLines.mkString
   println(f"Day 06: ${Day06.spawnSimulation(day06, 80)}")
+  println(f"Day 06.2: ${Day06.spawnSimulation(day06, 256)}")
 }

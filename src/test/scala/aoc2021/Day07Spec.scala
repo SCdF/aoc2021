@@ -8,5 +8,6 @@ class Day07Spec extends AnyFunSuite {
 
   test("works") {
     assert(Day07.optimalFuel(testInput) == 37)
+    assert(Day07.evenMoreOptimalFuel(testInput) == 168)
   }
 }

@@ -22,4 +22,6 @@ object Aoc extends App {
 
   val day08 = Source.fromFile("./src/data/day08").getLines.toList
   println(f"Day 08: ${Day08.easyCount(day08)}")
+  val day08Total = day08.map(Day08.digits).reduce(_+_)
+  println(f"Day 08.2: $day08Total")
 }

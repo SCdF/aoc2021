@@ -24,4 +24,7 @@ object Aoc extends App {
   println(f"Day 08: ${Day08.easyCount(day08)}")
   val day08Total = day08.map(Day08.digits).reduce(_+_)
   println(f"Day 08.2: $day08Total")
+
+  val day09 = Source.fromFile("./src/data/day09").mkString
+  println(f"Day 09: ${Day09.riskLevel(day09)}")
 }

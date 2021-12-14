@@ -27,4 +27,5 @@ object Aoc extends App {
 
   val day09 = Source.fromFile("./src/data/day09").mkString
   println(f"Day 09: ${Day09.riskLevel(day09)}")
+  println(f"Day 09.2: ${Day09.basins(day09)}")
 }

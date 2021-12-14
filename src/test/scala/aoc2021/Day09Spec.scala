@@ -10,7 +10,10 @@ class Day09Spec extends AnyFunSuite {
 8767896789
 9899965678"""
 
-  test("works") {
+  test("part one works") {
     assert(Day09.riskLevel(testInput) == 15)
+  }
+  test("part two works") {
+    assert(Day09.basins(testInput) == 1134)
   }
 }

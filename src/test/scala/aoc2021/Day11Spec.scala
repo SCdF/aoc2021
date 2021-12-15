@@ -18,7 +18,7 @@ class Day11Spec extends AnyFunSuite {
   test("part one works") {
     assert(Day11.flashCount(testInput, 100) == 1656)
   }
-  // test("completion score works") {
-  //   assert(Day10.completionScore(testInput) == 288957)
-  // }
+  test("completion score works") {
+    assert(Day11.stepsUntilSynchronization(testInput) == 195)
+  }
 }

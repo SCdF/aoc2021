@@ -18,4 +18,7 @@ class Day10Spec extends AnyFunSuite {
   test("part one works") {
     assert(Day10.errorScore(testInput) == 26397)
   }
+  test("completion score works") {
+    assert(Day10.completionScore(testInput) == 288957)
+  }
 }

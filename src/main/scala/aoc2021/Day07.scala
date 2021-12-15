@@ -1,19 +1,12 @@
 package aoc
 
 import scala.annotation.tailrec
+import Helpers._
 
 object Day07 {
-  def median(numbers: List[Int]): Int = {
-    val sorted= numbers.sorted
-    sorted(sorted.size / 2)
-  }
-
-  def mean(numbers: List[Int]): Int =
-    Math.round(numbers.reduce(_+_) / numbers.size.toFloat)
-
   def optimalFuel(input: String): Int = {
     val positions = input.split(',').map(_.toInt).toList
-    val optimalPosition = median(positions)
+    val optimalPosition = positions.median
 
     positions.map(p => Math.abs(p - optimalPosition)).reduce(_+_)
   }
@@ -24,7 +17,7 @@ object Day07 {
 
   def evenMoreOptimalFuel(input: String): Long = {
     val positions = input.split(',').map(_.toInt).toList
-    val optimalPosition = mean(positions)
+    val optimalPosition = positions.mean
 
     def totalCount(optimalPos: Int) = positions
       .map(p => cost(Math.abs(p - optimalPos)))

@@ -31,4 +31,5 @@ object Aoc extends App {
 
   val day10 = Source.fromFile("./src/data/day10").mkString
   println(f"Day 10: ${Day10.errorScore(day10)}")
+  println(f"Day 10.1: ${Day10.completionScore(day10).toLong}")
 }

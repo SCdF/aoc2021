@@ -69,4 +69,5 @@ ny-xx
 xh-DR
 cu-xh"""
   println(f"Day 12: ${Day12.paths(day12).size}")
+  println(f"Day 12.1: ${Day12.paths(day12, 1).size}")
 }

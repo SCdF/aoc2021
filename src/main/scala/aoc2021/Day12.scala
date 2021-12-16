@@ -12,7 +12,7 @@ object Day12 {
     override def toString() = f"$name: ${destinations.map(_.name)}"
   }
 
-  def paths(input: String): Seq[Seq[Room]] = {
+  def paths(input: String, allowances: Int = 0): Seq[Seq[Room]] = {
     val rooms: Seq[Room] = input
       .split('\n')
       .foldLeft(ArrayBuffer[Room]())({case (rooms, line) => line.split('-') match {
@@ -35,17 +35,19 @@ object Day12 {
         }
       }})
 
-    def travel(path: Seq[Room], blocked: Seq[Room]): Seq[Seq[Room]] = {
+    def travel(path: Seq[Room], blocked: Seq[Room], allowances: Int = allowances): Seq[Seq[Room]] = {
       val room = path.last
 
       if (room.name == "end") return List(path)
 
       room.destinations
-        .filterNot(dest => blocked.contains(dest))
-        .map(dest => {
-          if (dest.big) travel(path :+ dest, blocked)
-          else travel(path :+ dest, blocked :+ dest)
-        }).flatten
+        .filterNot(_.name == "start")
+        .map(dest =>
+          if (dest.big) Some(travel(path :+ dest, blocked, allowances))
+          else if (!blocked.contains(dest)) Some(travel(path :+ dest, blocked :+ dest, allowances))
+          else if (blocked.contains(dest) && allowances > 0) Some(travel(path :+ dest, blocked :+ dest, allowances - 1))
+          else None
+        ).flatten.flatten
     }
 
     val start = rooms.find(_.name == "start").get

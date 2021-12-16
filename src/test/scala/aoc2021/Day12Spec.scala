@@ -11,7 +11,7 @@ A-c
 A-b
 b-d
 A-end
-b-end""", 10),
+b-end""", 10, 36),
     ("""dc-end
 HN-start
 start-kj
@@ -21,7 +21,7 @@ LN-dc
 HN-end
 kj-sa
 kj-HN
-kj-dc""", 19),
+kj-dc""", 19, 103),
     ("""fs-end
 he-DX
 fs-he
@@ -39,11 +39,14 @@ start-pj
 he-WI
 zg-he
 pj-fs
-start-RW""", 226))
+start-RW""", 226, 3509))
 
   test("part one works") {
     tests.foreach({
-      case (input, paths) => assert(Day12.paths(input).size == paths)
+      case (input, p1, p2) => {
+        assert(Day12.paths(input).size == p1)
+        assert(Day12.paths(input, 1).size == p2)
+      }
     })
   }
 }

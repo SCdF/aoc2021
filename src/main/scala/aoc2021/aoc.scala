@@ -45,4 +45,28 @@ object Aoc extends App {
 7788154252"""
   println(f"Day 11: ${Day11.flashCount(day11, 100)}")
   println(f"Day 11.1: ${Day11.stepsUntilSynchronization(day11)}")
+
+  val day12 = """xx-xh
+vx-qc
+cu-wf
+ny-LO
+cu-DR
+start-xx
+LO-vx
+cu-LO
+xx-cu
+cu-ny
+xh-start
+qc-DR
+vx-AP
+end-LO
+ny-DR
+vx-end
+DR-xx
+start-DR
+end-ny
+ny-xx
+xh-DR
+cu-xh"""
+  println(f"Day 12: ${Day12.paths(day12).size}")
 }
